@@ -211,6 +211,14 @@ artifacts:
       skipped. If a question would change the specs, the chosen approach, or
       the task breakdown, resolve it now - ask the user instead of guessing.
 
+      When a decision is one of these, invoke the qef skill for it before
+      writing that decision, and record which of its questions the decision
+      answers:
+      - Types, classes, enums, stored fields or columns → `qef:model`
+      - Files, modules, packages, dependency direction, data flow, screen paths → `qef:layout`
+      - What a human-facing screen shows, its flow, input and wording → `qef:ux`; its appearance → `qef:ui`
+      - Structure of a web API or browser frontend → `qef:web`
+
       Focus on architecture and approach, not line-by-line implementation.
       The proposal covers why and what; design covers how. Reference the
       proposal for motivation and, once written, the specs for requirements -
@@ -299,6 +307,16 @@ apply:
   instruction: |
     Read context files, work through pending tasks, mark complete as you go.
     Pause if you hit blockers or need clarification.
+
+    While working through tasks, invoke the qef skill for each situation
+    before acting in it:
+    - Reading or writing code → `qef:dev`
+    - Writing or fixing a test, or a test fails → `qef:testing`
+    - Looking for the cause of an error or unexpected behavior → `qef:investigate`
+    - Renaming, moving or replacing existing code → `qef:refactor`
+    - A project with package.json or tsconfig.json → `qef:js-ts`
+    - Implementing a browser feature (dialog, popover, form, layout, animation, performance) → `modern-web-guidance`
+    - A decision listed for design.md comes up during work → that skill
 
     Before saying the change is done, check each Done When condition in
     proposal.md against what was actually built and state the evidence for
