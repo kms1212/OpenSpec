@@ -1,5 +1,17 @@
 # Proposal
 
+## Purpose
+
+<!-- What the user is ultimately trying to get, quoting the user's words. Whole referent: not narrowed to a phrase or example, not widened. -->
+
+## Done When
+
+<!-- The state in which the user would call this done, as results the user sees or uses. Not "tests pass". -->
+
+## Existing Solutions
+
+<!-- Standards, official docs, project precedent, libraries you looked for before choosing the approach: each with source (path:line or URL) and why used or not. -->
+
 ## Why
 
 <!-- Explain the motivation for this change. What problem does this solve? Why now? -->

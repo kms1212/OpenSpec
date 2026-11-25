@@ -1,6 +1,6 @@
 name: spec-driven
 version: 1
-description: Default OpenSpec workflow - proposal → specs → design → tasks
+description: qef - OpenSpec workflow judged by purpose, not by elements - proposal → specs → design → tasks
 artifacts:
   - id: proposal
     generates: proposal.md
@@ -9,7 +9,25 @@ artifacts:
     instruction: |
       Create the proposal document that establishes WHY this change is needed.
 
+      Every later judgment in this change (scope, design, what counts as done)
+      is made against the Purpose and Done When written here, not against
+      elements such as passing tests, a small diff, or the wording of a rule.
+
       Sections:
+      - **Purpose**: What the user is ultimately trying to get, quoting the
+        user's own words. Take what the words point to as a whole: do not
+        narrow it to the literal phrase or an example, do not widen it, and do
+        not turn an opinion or a question into an instruction. A metaphor maps
+        to what it points to, not to one phrase of it.
+      - **Done When**: The state in which the user would say this is done,
+        stated as results the user sees or uses. A passing test is not a Done
+        When condition; it can only be evidence for one.
+      - **Existing Solutions**: What you looked for before choosing an approach
+        - standards, official documentation, the project's own precedent
+        (existing modules, helpers, conventions), libraries - each with its
+        source (`path:line` or URL), and why it is or is not used. Do this
+        search before writing the rest of the proposal; an approach chosen
+        without it is not a proposal.
       - **Why**: 1-2 sentences on the problem or opportunity. What problem does this solve? Why now?
       - **What Changes**: Bullet list of changes. Be specific about new capabilities, modifications, or removals. Mark breaking changes with **BREAKING**.
       - **Capabilities**: Identify which specs will be created or modified:
@@ -169,12 +187,18 @@ artifacts:
       Create the design document that explains HOW to implement the change.
 
       When to include design.md (create only if any apply):
+      - A fix to a defect (its cause and every place the cause reaches)
       - Cross-cutting change (multiple services/modules) or new architectural pattern
       - New external dependency or significant data model changes
       - Security, performance, or migration complexity
       - Ambiguity that benefits from technical decisions before coding
 
       Sections:
+      - **Cause and Its Reach**: For a fix, the cause (not the symptom) and
+        every place the same cause appears, by path. The design covers all of
+        them with one structure. Do not add an exception path or workaround to
+        keep the diff small; if the structure is wrong, change the structure.
+        Behavior that must differ by kind is not an exception.
       - **Context**: Only the current state and constraints needed to explain the approach. Reference the proposal for motivation instead of restating it (e.g., "See proposal.md - Why").
       - **Goals / Non-Goals**: What this design achieves and explicitly excludes. Don't restate the proposal's scope - add only design-level boundaries.
       - **Decisions**: Key technical choices with rationale (why X over Y?). Include alternatives considered for each decision.
@@ -216,16 +240,20 @@ artifacts:
       Guidelines:
       - Group related tracked tasks under ## numbered headings
       - Each tracked task MUST be a checkbox: `- [ ] X.Y Task description`
-      - Tasks should be small enough to complete in one session
+      - Size tasks by the structure the design chose, not by how small a diff
+        can be. A task that adds an exception path or workaround states why
+        the structure could not carry it.
       - Order tasks by dependency (what must be done first?)
       - Track implementation and verification work that can be completed before
         archive. If the requested workflow includes archive or work that requires
         this change to be archived, preserve those steps as plain bullets in an
         optional `## Workflow follow-up` section at the end of tasks.md. These
         bullets are reference information outside tracked task progress.
-      - Each task MUST state how to verify completion (a test, command,
-        observable behavior, or delivered artifact). Put the verification in
-        that task's checkbox description. Use a separate verification task only
+      - Each task MUST state how to verify completion against the behavior the
+        specs require or a result the user sees (a command, observable
+        behavior, or delivered artifact; a test only when it checks that
+        required behavior, never one that pins internal structure). Put the
+        verification in that task's checkbox description. Use a separate verification task only
         when it checks broader integration or system behavior that spans
         multiple implementation tasks.
       - Each task group MUST land the tests and documentation its own work
@@ -271,3 +299,8 @@ apply:
   instruction: |
     Read context files, work through pending tasks, mark complete as you go.
     Pause if you hit blockers or need clarification.
+
+    Before saying the change is done, check each Done When condition in
+    proposal.md against what was actually built and state the evidence for
+    each. Passing tests alone do not make it done. A defect you find on the
+    way is fixed, not just reported.
