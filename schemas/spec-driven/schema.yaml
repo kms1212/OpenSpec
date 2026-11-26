@@ -319,6 +319,7 @@ apply:
     before acting in it:
     - Reading or writing code → `qef:dev`
     - Writing or fixing a test, or a test fails → `qef:testing`
+    - Running a long command (build, full test, CI wait, server) → `qef:command`
     - Looking for the cause of an error or unexpected behavior → `qef:investigate`
     - Renaming, moving or replacing existing code → `qef:refactor`
     - Writing a schema, a migration, or code that reads or writes the database → `qef:db`
