@@ -196,9 +196,11 @@ artifacts:
       Sections:
       - **Cause and Its Reach**: For a fix, the cause (not the symptom) and
         every place the same cause appears, by path. The design covers all of
-        them with one structure. Do not add an exception path or workaround to
-        keep the diff small; if the structure is wrong, change the structure.
-        Behavior that must differ by kind is not an exception.
+        them with one structure. Do not add an exception path or workaround
+        the user did not ask for; if the structure cannot carry a case, change
+        the structure or ask the user. One exception becomes the precedent the
+        next change copies. Behavior that must differ by kind is not an
+        exception.
       - **Context**: Only the current state and constraints needed to explain the approach. Reference the proposal for motivation instead of restating it (e.g., "See proposal.md - Why").
       - **Goals / Non-Goals**: What this design achieves and explicitly excludes. Don't restate the proposal's scope - add only design-level boundaries.
       - **Decisions**: Key technical choices with rationale (why X over Y?). Include alternatives considered for each decision.
@@ -251,8 +253,8 @@ artifacts:
       - Group related tracked tasks under ## numbered headings
       - Each tracked task MUST be a checkbox: `- [ ] X.Y Task description`
       - Size tasks by the structure the design chose, not by how small a diff
-        can be. A task that adds an exception path or workaround states why
-        the structure could not carry it.
+        can be. A task does not add an exception path or workaround the user
+        did not ask for, in code or in documents and generators.
       - Order tasks by dependency (what must be done first?)
       - Track implementation and verification work that can be completed before
         archive. If the requested workflow includes archive or work that requires
@@ -323,6 +325,8 @@ apply:
     - Writing or revising a document for readers (spec, manual, README, design doc, report) → `qef:doc`
     - Writing or building a LaTeX document (.tex, .sty, .cls) → `qef:latex`
     - Reading, writing or checking a Sail model (.sail, .sail_project) → `qef:sail`
+    - Handing work to a subagent or another session → `qef:delegate`
+    - Writing or changing rules, skills, agent instructions or memory → `qef:rules`
     - Implementing a browser feature (dialog, popover, form, layout, animation, performance) → `modern-web-guidance`
     - A decision listed for design.md comes up during work → that skill
 
