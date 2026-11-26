@@ -215,6 +215,7 @@ artifacts:
       writing that decision, and record which of its questions the decision
       answers:
       - Types, classes, enums, stored fields or columns → `qef:model`
+      - Tables, columns, relations, indexes, how a list is paged → `qef:db`
       - Files, modules, packages, dependency direction, data flow, screen paths → `qef:layout`
       - What a human-facing screen shows, its flow, input and wording → `qef:ux`; its appearance → `qef:ui`
       - Structure of a web API or browser frontend → `qef:web`
@@ -315,6 +316,7 @@ apply:
     - Writing or fixing a test, or a test fails → `qef:testing`
     - Looking for the cause of an error or unexpected behavior → `qef:investigate`
     - Renaming, moving or replacing existing code → `qef:refactor`
+    - Writing a schema, a migration, or code that reads or writes the database → `qef:db`
     - A change brings a language into the repository for the first time → that language's qef skill, its 「들일 때」 section
     - A project with package.json or tsconfig.json → `qef:js-ts`
     - A project with pyproject.toml, setup.py or requirements.txt → `qef:python`
