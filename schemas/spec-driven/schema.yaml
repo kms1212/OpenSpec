@@ -27,7 +27,9 @@ artifacts:
         (existing modules, helpers, conventions), libraries - each with its
         source (`path:line` or URL), and why it is or is not used. Do this
         search before writing the rest of the proposal; an approach chosen
-        without it is not a proposal.
+        without it is not a proposal. Search in the order, and record what
+        you found and the commands you used, as `qef:dev`'s
+        「쓰기 전에 이미 있는 것을 찾는다」 says.
       - **Why**: 1-2 sentences on the problem or opportunity. What problem does this solve? Why now?
       - **What Changes**: Bullet list of changes. Be specific about new capabilities, modifications, or removals. Mark breaking changes with **BREAKING**.
       - **Capabilities**: Identify which specs will be created or modified:
@@ -216,6 +218,7 @@ artifacts:
       When a decision is one of these, invoke the qef skill for it before
       writing that decision, and record which of its questions the decision
       answers:
+      - The cause of a defect and every place it reaches (Cause and Its Reach) → `qef:investigate`
       - Types, classes, enums, stored fields or columns → `qef:model`
       - Tables, columns, relations, indexes, how a list is paged → `qef:db`
       - Files, modules, packages, dependency direction, data flow, screen paths → `qef:layout`
