@@ -218,6 +218,7 @@ artifacts:
       - Files, modules, packages, dependency direction, data flow, screen paths → `qef:layout`
       - What a human-facing screen shows, its flow, input and wording → `qef:ux`; its appearance → `qef:ui`
       - Structure of a web API or browser frontend → `qef:web`
+      - What a document for readers says, its terms, and how it uses headings, tables, figures and references → `qef:doc`
 
       Focus on architecture and approach, not line-by-line implementation.
       The proposal covers why and what; design covers how. Reference the
@@ -316,6 +317,8 @@ apply:
     - Renaming, moving or replacing existing code → `qef:refactor`
     - A project with package.json or tsconfig.json → `qef:js-ts`
     - A project with pyproject.toml, setup.py or requirements.txt → `qef:python`
+    - Writing or revising a document for readers (spec, manual, README, design doc, report) → `qef:doc`
+    - Writing or building a LaTeX document (.tex, .sty, .cls) → `qef:latex`
     - Implementing a browser feature (dialog, popover, form, layout, animation, performance) → `modern-web-guidance`
     - A decision listed for design.md comes up during work → that skill
 
