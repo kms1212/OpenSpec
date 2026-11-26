@@ -319,6 +319,7 @@ apply:
     - A project with pyproject.toml, setup.py or requirements.txt → `qef:python`
     - Writing or revising a document for readers (spec, manual, README, design doc, report) → `qef:doc`
     - Writing or building a LaTeX document (.tex, .sty, .cls) → `qef:latex`
+    - Reading, writing or checking a Sail model (.sail, .sail_project) → `qef:sail`
     - Implementing a browser feature (dialog, popover, form, layout, animation, performance) → `modern-web-guidance`
     - A decision listed for design.md comes up during work → that skill
 
