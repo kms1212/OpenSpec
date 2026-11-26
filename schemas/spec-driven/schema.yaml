@@ -315,6 +315,7 @@ apply:
     - Looking for the cause of an error or unexpected behavior → `qef:investigate`
     - Renaming, moving or replacing existing code → `qef:refactor`
     - A project with package.json or tsconfig.json → `qef:js-ts`
+    - A project with pyproject.toml, setup.py or requirements.txt → `qef:python`
     - Implementing a browser feature (dialog, popover, form, layout, animation, performance) → `modern-web-guidance`
     - A decision listed for design.md comes up during work → that skill
 
